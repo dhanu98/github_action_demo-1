@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-app  # Ensure the artifact name matches the one used in the previous job
-          path: target/my-app.jar
+          path: target/original-jb-hello-world-maven-0.2.0.jar
 
       - name: Build Docker image
         run: |
