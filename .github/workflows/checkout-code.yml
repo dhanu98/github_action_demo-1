@@ -29,6 +29,10 @@ jobs:
           name: my-app
           path: target/my-app.jar 
 
+
+  builds:
+    runs-on: ubuntu-latest
+      steps:
       - name: Build Docker image
         run: |
           docker build -t git-action-demo .
