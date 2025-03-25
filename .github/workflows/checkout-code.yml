@@ -29,17 +29,25 @@ jobs:
           name: my-app
           path: target/my-app.jar 
 
-
-  builds:
+  build_docker:
     runs-on: ubuntu-latest
-      steps:
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download JAR Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my-app  # Ensure the artifact name matches the one used in the previous job
+
       - name: Build Docker image
         run: |
           docker build -t git-action-demo .
 
-      - name: Push Docker image (optional)
+      - name: Push Docker image
         run: |
-          docker tag my-app-image dhananjaytupe/git-action-demo:latest
+          docker tag git-action-demo dhananjaytupe/git-action-demo:latest
           docker push dhananjaytupe/git-action-demo:latest
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
