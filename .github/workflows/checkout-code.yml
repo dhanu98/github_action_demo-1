@@ -42,6 +42,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-app  # Ensure the artifact name matches the one used in the previous job
+          path: target/my-app.jar
 
       - name: Build Docker image
         run: |
