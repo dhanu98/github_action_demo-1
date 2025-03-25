@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the build artifacts to the container
-COPY target/my-app.jar /app/my-app.jar
+COPY target/original-jb-hello-world-maven-0.2.0.jar /app/my-app.jar
 
 # Set the command to run the JAR file
 CMD ["java", "-jar", "my-app.jar"]
