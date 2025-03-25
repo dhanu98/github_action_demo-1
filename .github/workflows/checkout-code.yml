@@ -28,3 +28,15 @@ jobs:
         with:
           name: my-app
           path: target/*.jar 
+
+      - name: Build Docker image
+        run: |
+          docker build -t git-action-demo .
+
+      - name: Push Docker image (optional)
+        run: |
+          docker tag my-app-image dhananjaytupe/git-action-demo:latest
+          docker push dhananjaytupe/git-action-demo:latest
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
