@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: my-app
-          path: target/my-app.jar 
+          path: ttarget/jb-hello-world-maven-0.2.0.jar 
 
       - name: List build directory contents (for debugging)
         run: ls -l target/
@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-app  # Ensure the artifact name matches the one used in the previous job
-          path: target/original-jb-hello-world-maven-0.2.0.jar
+          path: target/jb-hello-world-maven-0.2.0.jar
 
       - name: Build Docker image
         run: |
