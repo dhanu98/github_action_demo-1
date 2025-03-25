@@ -31,6 +31,7 @@ jobs:
           path: target/my-app.jar 
 
   build_docker:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
